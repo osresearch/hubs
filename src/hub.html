@@ -55,6 +55,51 @@
         set-max-resolution
         light="defaultLightsEnabled: false"
     >
+<!-- coordinates are negative away from camera, altitude above ground, positive to the left -->
+<a-entity
+	position="-5 3 -13"
+	scale="1 1 1"
+	rotation="-180 0 0"
+	animation="
+		property: rotation;
+		to: 180 0 0;
+		easing: linear;
+		loop: true;
+		dur: 90000;
+	"
+>
+<a-entity
+	rotation="0 0 0"
+	animation="
+		property: rotation;
+		to: 0 360 0;
+		easing: linear;
+		loop: true;
+		dur: 110000;
+	"
+>
+	<a-entity
+		snake="latest:#wasp; dim:3; speed:500;"
+	></a-entity>
+
+<a-entity id="wasp"></a-entity>
+<a-sphere radius="0.02" color="red" follower="target:#wasp"></a-sphere>
+<a-sphere radius="0.02" color="red" follower="target:#wasp"></a-sphere>
+<a-sphere radius="0.02" color="red" follower="target:#wasp"></a-sphere>
+<a-sphere radius="0.02" color="red" follower="target:#wasp"></a-sphere>
+<a-sphere radius="0.02" color="red" follower="target:#wasp"></a-sphere>
+<a-sphere radius="0.02" color="red" follower="target:#wasp"></a-sphere>
+<a-sphere radius="0.02" color="red" follower="target:#wasp"></a-sphere>
+<a-sphere radius="0.02" color="red" follower="target:#wasp"></a-sphere>
+</a-entity>
+</a-entity>
+
+	<a-entity
+		position="3 1 -5"
+		rotation="0 45 0"
+		irisdoor="blades:11; radius:3;"
+	></a-entity>
+
         <a-assets>
             <img id="presence-count" crossorigin="anonymous" src="./assets/hud/presence-count.png">
             <img id="action-button" crossorigin="anonymous" src="./assets/hud/action_button.9.png">

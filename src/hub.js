@@ -114,6 +114,10 @@ import "./components/periodic-full-syncs";
 import "./components/inspect-button";
 import "./components/set-max-resolution";
 import "./components/avatar-audio-source";
+import "./components/follower";
+import "./components/wasp";
+import "./components/snake";
+import "./components/irisdoor";
 import { sets as userinputSets } from "./systems/userinput/sets";
 
 import ReactDOM from "react-dom";
