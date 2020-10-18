@@ -112,8 +112,13 @@ import "./components/hubs-text";
 import "./components/billboard";
 import "./components/periodic-full-syncs";
 import "./components/inspect-button";
+import "./components/inspect-pivot-child-selector";
+import "./components/inspect-pivot-offset-from-camera";
+import "./components/optional-alternative-to-not-hide";
 import "./components/set-max-resolution";
 import "./components/avatar-audio-source";
+import "./components/avatar-inspect-collider";
+// hacks for art projects
 import "./components/follower";
 import "./components/wasp";
 import "./components/snake";
@@ -1552,6 +1557,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   hubPhxChannel.on("hub_refresh", ({ session_id, hubs, stale_fields }) => {
     const hub = hubs[0];
     const userInfo = hubChannel.presence.state[session_id];
+    const displayName = (userInfo && userInfo.metas[0].profile.displayName) || "API";
 
     window.APP.hub = hub;
     updateUIForHub(hub, hubChannel);
@@ -1566,7 +1572,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       addToPresenceLog({
         type: "scene_changed",
-        name: userInfo.metas[0].profile.displayName,
+        name: displayName,
         sceneName: hub.scene ? hub.scene.name : "a custom URL"
       });
     }
@@ -1590,7 +1596,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       addToPresenceLog({
         type: "hub_name_changed",
-        name: userInfo.metas[0].profile.displayName,
+        name: displayName,
         hubName: hub.name
       });
     }
